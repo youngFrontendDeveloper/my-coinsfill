@@ -1,0 +1,219 @@
+@use "./variables" as variable;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: variable.$color-text;
+  background-color: variable.$color-white;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: variable.$width-lg;
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.header {
+  flex: 0 0 auto;
+}
+
+.main {
+  flex: 1 0 auto;
+  padding: 15px;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+  height: 100%;
+  max-width: variable.$width-xl;
+  margin: 0 auto;
+  padding: 19px 41px 37px;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px -5px 20px 0px #0000001A;
+  background: linear-gradient(180deg, variable.$color-white 0%, variable.$color-footer-gradient 100%);
+
+}
+
+.footer__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 49px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.footer__text {
+  color: lighten(variable.$color-text, 50%);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.63px;
+
+&--active {
+   color: variable.$color-active-link;
+ }
+}
+
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17.07px;
+  border-radius: 50px;
+
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(variable.$color-text, 90%);
+  z-index: 30;
+}
+
+.modal-wrapper {
+  position: relative;
+  width: 383px;
+  min-height: 602px;
+  background-image: linear-gradient(180deg, variable.$color-popup-bg1 0%, variable.$color-popup-bg-2 100%);
+
+  border-radius: 35px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  padding: 61px 29px 50px 27px;
+//color: variable.$color-white;
+  background-image: url(/images/modal-bg.svg);
+  background-size: 344px 546px;
+  background-position: 30px 15px;
+  background-repeat: no-repeat;
+}
+
+.form__item {
+  position: relative;
+  display: flex;
+  margin-bottom: 22px;
+}
+
+.form__label {
+  margin-bottom: 9px;
+  color: variable.$color-white;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.07px;
+}
+
+.form__input {
+  padding: 15px 15px 15px 57px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 22.5px;
+}
+
+.form__input-icon {
+  position: absolute;
+  top: 42px;
+  left: 20px;
+}
+
+.form__password-icon {
+  position: absolute
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.custom-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border: 2px solid variable.$color-white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.custom-check {
+  display: block;
+  width: 11px;
+  height: 10px;
+  background-image: url(/images/check-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.input-file {
+  position: relative;
+  display: flex;
+}
+
+.input-file input[type=file] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.input-file-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 375px;
+  height: 65px;
+  margin: 0;
+  padding: 10px 20px;
+  color: variable.$color-white;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.07px;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  background-image: linear-gradient(272.88deg, variable.$color-light-violet 4.95%, variable.$color-violet 93.62%);
+  box-shadow: 0px 4px 20px 0px #686DE080;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+
+.input-file-btn:hover {
+  background-image: linear-gradient(272.88deg, variable.$color-violet 4.95%, variable.$color-light-violet 93.62%);
+}
