@@ -31,7 +31,7 @@ export default function Footer() {
           <span className={ path === "/cards" ? "footer__text footer__text--active" : "footer__text" }>מפות</span>
         </Link>
 
-        <Link href="/remittance" className="footer__item pt-[1px]" title="Переводы">
+        <Link href="/remittance" className="footer__item pt-[4px]" title="Переводы">
           <ArrowIcon
             width={ 19 } height={ 14 } alt="Переводы"
             className={ path === "/remittance" ? "footer__icon footer__icon--active " : "footer__icon " }

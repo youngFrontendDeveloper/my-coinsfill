@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -6,7 +6,7 @@ export default function HomePage() {
     <section className="">
       <h1 className="mb-[20px] text-[35px] text-center font-bold">Данная работа демонстрирует:</h1>
 
-      <ul className="max-w-[600px] mx-auto mb-[20px] text-black-80 list-disc">
+      <ul className="max-w-[600px] mx-auto mb-[20px] pl-[20px] pr-[10px] text-black-80 list-disc">
         <li>Адаптивный проект для mobile и desktop экранов (минимальное разрешение 430px)</li>
         <li>Подключение шрифтов Google</li>
         <li>Работу страницы входа/регистрации пользователя с помощью REST API</li>
@@ -31,5 +31,5 @@ export default function HomePage() {
         title="Посмотреть макет" className="text-link-blue-100 underline hover:text-my-orange-100" target="_blank"
       >этой</Link> ссылке</p>
     </section>
-  )
+  );
 }
