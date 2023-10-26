@@ -7,12 +7,21 @@ import { useContext, useEffect, useState } from "react";
 import { getAvatar } from "@/services/getAvatar";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/services/useUser";
+
+export const metadata = {
+  title: "Coinsfill/Страница пользователя",
+  description: "Страница пользователя с его данными",
+};
 
 
 export default function ProfilePage() {
   const [ avatar, setAvatar ] = useState( null );
   const router = useRouter();
-  const { auth } = useContext( authContext );
+  const { isAuth } = useContext( authContext );
+  // const { user } = useUser();
+
+  // console.log( user );
 
   const breadCrumbs = [
     {
@@ -26,7 +35,7 @@ export default function ProfilePage() {
   ];
 
   useEffect( () => {
-    if( auth === false ) {
+    if( isAuth === false ) {
       router.push( "/login" );
     }
 
@@ -34,8 +43,9 @@ export default function ProfilePage() {
 
   useEffect( () => {
     async function f() {
-      const response = await getAvatar();
-      setAvatar( response.image );
+      const response = await getAvatar(6);
+      // console.log(response);
+      setAvatar( response.media_details.sizes.medium.source_url );
     }
 
     f();

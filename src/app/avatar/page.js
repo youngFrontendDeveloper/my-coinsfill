@@ -8,11 +8,16 @@ import { authContext } from "@/context/authContext";
 import Button from "@/components/Button/Button";
 import { useRouter } from "next/navigation";
 
+export const metadata = {
+  title: "Coinsfill/Изменение аватара",
+  description: "Страница изменения аватара с возможностью обрезки выбранного изображения",
+};
+
 export default function UploadingAvatarPage() {
   const [ file, setFile ] = useState( null );
   const [ messageSaving, setMessageSaving ] = useState( "" );
   const [ messageErr, setMessageErr ] = useState( "" );
-  const { auth } = useContext( authContext );
+  const { isAuth } = useContext( authContext );
   const router = useRouter();
   const editorRef = useRef( null );
 
@@ -56,7 +61,7 @@ export default function UploadingAvatarPage() {
 
     const base64 = cropImg.toDataURL( "image/*" );
 
-    const response = await setAvatar( base64, type );
+    const response = await setAvatar( 6, base64, type );
 
     if( response.ok ) {
       setMessageSaving( "Изображение сохранено" );
@@ -74,7 +79,7 @@ export default function UploadingAvatarPage() {
   };
 
   useEffect( () => {
-    if( !auth ) {
+    if( !isAuth ) {
       router.push( "/login" );
     }
   } );

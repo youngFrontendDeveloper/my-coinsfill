@@ -1,24 +1,50 @@
-export const apiLogin = async(url, data) => {
-  try {
-    const response = await fetch( url, {
+export const apiLogin =async(url, data)=>{
+  try{
+    const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify( {
-        email: "my-mail@mail.ru",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: data.email,
         password: data.password,
-      } )
-    } );
+      })
+    });
 
-    const result = await response.json();
-    console.log( result );
+    if(response.ok){
+      const result = await response.json();
+      console.log(result);
+      localStorage.setItem("token", result.token)
 
-    if( result.ok ) {
-      localStorage.setItem( "token", result.token );
-
+      return result;
     }
-
-    return result;
-  } catch( err ) {
-    console.log( err );
+  }catch(err){
+    console.log(err);
   }
+}
 
-};
+
+// export const apiLogin = async(url, data) => {
+//   try {
+//     const response = await fetch( url, {
+//       method: "POST",
+//       body: JSON.stringify( {
+//         email: data.email,
+//         password: data.password,
+//       } )
+//     } );
+//
+//     const result = await response.json();
+//     console.log( result );
+//
+//     if( result.ok ) {
+//       localStorage.setItem( "token", result.token );
+//
+//     }
+//
+//     return result;
+//   } catch( err ) {
+//     console.log( err );
+//   }
+//
+// };

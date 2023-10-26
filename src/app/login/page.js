@@ -38,13 +38,14 @@ export default function LoginPage() {
     setShowModal( true );
     setTitle( "Логин" );
     setButtonText( "Войти" );
-    setUrl( "https://test-task.test211.workers.dev/login" );
+    setUrl( "http://my-coinsfill/wordpress/wp-json/jwt-auth/v1/token" );
+    // setUrl( "https://test-task.test211.workers.dev/login" );
     setFormFields( [
       {
-        type: "phone",
-        name: "phone",
-        placeholder: "+7 961 825 70 55",
-        label: "Ваш телефон",
+        type: "email",
+        name: "email",
+        placeholder: "mail@mail.ru",
+        label: "Ваш email",
         required: true,
       },
       {
@@ -72,13 +73,14 @@ export default function LoginPage() {
     setShowModal( true );
     setTitle( "Регистрация" );
     setButtonText( "Зарегистрироваться" );
-    setUrl( "https://test-task.test211.workers.dev/user" );
+    setUrl( "http://my-coinsfill/wordpress/wp-json/jwt-auth/v1/token" );
+    // setUrl( "https://test-task.test211.workers.dev/user" );
     setFormFields( [
       {
-        type: "phone",
-        name: "phone",
-        placeholder: "+7 961 825 70 55",
-        label: "Ваш телефон",
+        type: "email",
+        name: "email",
+        placeholder: "mail@mail.ru",
+        label: "Ваш email",
         required: true,
       },
       {

@@ -1,13 +1,25 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   webpack(config) {
-    config.module.rules.push({
+    config.module.rules.push( {
       test: /\.svg$/,
-      use: ["@svgr/webpack"]
-    });
+      use: [ "@svgr/webpack" ]
+    } );
 
     return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "my-coinsfill",
+        port: "",
+        pathname: "/**",
+      }
+    ]
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
+
+

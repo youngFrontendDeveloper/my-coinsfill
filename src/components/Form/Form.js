@@ -1,4 +1,4 @@
-import PhoneField from "../PhoneField/PhoneField";
+import EmailField from "../EmailField/EmailField";
 import PasswordField from "../PasswordField/PasswordField";
 import TextField from "../TextField/TextField";
 import CheckboxField from "../CheckboxField/CheckboxField";
@@ -28,23 +28,18 @@ export default function Form({
       {
         formFields.map( (item, index) => {
           switch( item.type ) {
-            case( "phone" ):
+            case( "email" ):
               return (
-                <PhoneField
+                <EmailField
                   item={ item }
                   register={ register( `${ item.name }`, {
-                    required: "Пожалуйста, введите телефон",
-                    maxLength: {
-                      value: 12,
-                      message: "Должно быть не более 12 символов",
-                    },
-                    pattern: {
-                      value: /[+0-9]{12}/,
-                      message: "Пожалуйста, введите валидный номер телефона вида: +79278421489 без пропусков и тире",
-                    }
+                    required: "Пожалуйста, введите свой email",
+                    // pattern: {
+                    //   value: /^[a-zA-z0-9-._]+@[a-z0-9-_]+\.[a-z0-9-_]{2,6}/ui,
+                    //   message: "Пожалуйста, введите валидный email",
+                    // }
                   } ) }
                   errors={ errors[ item.name ] }
-                  // errorPhone={ error.phone }
                   key={ `${ item.name }-${ index }` }
                 />
               );

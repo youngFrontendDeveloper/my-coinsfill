@@ -9,7 +9,6 @@ import FundraisingIcon from "../../../public/images/fundraising-icon.svg";
 
 export default function Footer() {
   const path = usePathname();
-  console.log( path );
 
   return (
     <footer className="w-full h-[80px] footer">

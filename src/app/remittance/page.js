@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Coinsfill/Remittance",
+  description: "Страница Remittance",
+};
+
+
 export default function RemittancePage() {
   return (
     <>

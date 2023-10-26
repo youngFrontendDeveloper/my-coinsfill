@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Coinsfill/Cards",
+  description: "Страница Cards",
+};
+
 export default function CardsPage() {
   return (
     <>

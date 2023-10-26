@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Coinsfill",
+  description: "Вход или регистрация пользователя, получение данных пользователя и изменение аватара",
+};
+
+
 export default function HomePage() {
   return (
     <section className="">
@@ -19,6 +25,7 @@ export default function HomePage() {
         <li>Ограничение загружаемого файла по типу и размеру</li>
         <li>Отображение полей формы загрузки аватара в зависимости от того, выбрано изображение или нет</li>
         <li>Обрезку изображения аватара с помощью библиотеки react-avatar-editor</li>
+        <li>Изменение цвета svg-иконки у активного класса в меню навигации</li>
         <li>Оформление стилей с помощью Tailwindcss</li>
 
       </ul>

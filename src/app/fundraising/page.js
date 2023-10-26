@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Coinsfill/Fundraising",
+  description: "Страница Fundraising",
+};
+
+
 export default function FundraisingPage() {
   return (
     <>
