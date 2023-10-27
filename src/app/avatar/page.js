@@ -8,11 +8,6 @@ import { authContext } from "@/context/authContext";
 import Button from "@/components/Button/Button";
 import { useRouter } from "next/navigation";
 
-export const metadata = {
-  title: "Coinsfill/Изменение аватара",
-  description: "Страница изменения аватара с возможностью обрезки выбранного изображения",
-};
-
 export default function UploadingAvatarPage() {
   const [ file, setFile ] = useState( null );
   const [ messageSaving, setMessageSaving ] = useState( "" );
@@ -61,19 +56,19 @@ export default function UploadingAvatarPage() {
 
     const base64 = cropImg.toDataURL( "image/*" );
 
-    const response = await setAvatar( 6, base64, type );
+    const response = await setAvatar( base64, type );
 
     if( response.ok ) {
       setMessageSaving( "Изображение сохранено" );
       setTimeout( () => {
         setMessageSaving( "" );
         router.push( "/profile" );
-      }, 3000 );
+      }, 2000 );
     } else {
       setMessageErr( "Произошла ошибка. Изображение не сохранено" );
       setTimeout( () => {
         setMessageErr( "" );
-      }, 3000 );
+      }, 2000 );
     }
 
   };

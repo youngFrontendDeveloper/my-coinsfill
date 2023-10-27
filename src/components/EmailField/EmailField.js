@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function EmailField({ item, register, errors, }) {
+export default function EmailField({ item, register, errors, error}) {
 
   return (
     <div className="form__item flex-col">
@@ -14,6 +14,7 @@ export default function EmailField({ item, register, errors, }) {
       />
       <Image src="/images/email-icon.svg" width={ 18 } height={ 18 } alt="Email" className="form__input-icon" title="Ввести email"/>
       { errors && <p className="text-red-500 text-[14px]">{ errors.message }</p> }
+      { error && <p className="text-red-500 text-[14px]">{ error }</p> }
     </div>
   );
 }

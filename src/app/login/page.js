@@ -21,6 +21,7 @@ export default function LoginPage() {
     email: "",
     password: "",
   } );
+
   const { login } = useContext( authContext );
 
   const onError = (errors, e) => console.log( errors, e );
@@ -38,8 +39,7 @@ export default function LoginPage() {
     setShowModal( true );
     setTitle( "Логин" );
     setButtonText( "Войти" );
-    setUrl( "http://my-coinsfill/wordpress/wp-json/jwt-auth/v1/token" );
-    // setUrl( "https://test-task.test211.workers.dev/login" );
+    setUrl( "https://test-task.test211.workers.dev/login" );
     setFormFields( [
       {
         type: "email",
@@ -73,8 +73,7 @@ export default function LoginPage() {
     setShowModal( true );
     setTitle( "Регистрация" );
     setButtonText( "Зарегистрироваться" );
-    setUrl( "http://my-coinsfill/wordpress/wp-json/jwt-auth/v1/token" );
-    // setUrl( "https://test-task.test211.workers.dev/user" );
+    setUrl( "https://test-task.test211.workers.dev/user" );
     setFormFields( [
       {
         type: "email",
@@ -108,9 +107,10 @@ export default function LoginPage() {
 
   const onSubmit = async(data) => {
 
-    await login( url, data );
+    const response = await login( url, data );
 
-  };
+    setError( { email: response?.errors?.email, password: response?.errors?.password } );
+     };
 
   return (
     <div

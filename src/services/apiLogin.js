@@ -6,7 +6,7 @@ export const apiLogin =async(url, data)=>{
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: data.email,
+        email: data.email,
         password: data.password,
       })
     });
@@ -20,6 +20,7 @@ export const apiLogin =async(url, data)=>{
     }
   }catch(err){
     console.log(err);
+    return err.message
   }
 }
 

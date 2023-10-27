@@ -40,6 +40,7 @@ export default function Form({
                     // }
                   } ) }
                   errors={ errors[ item.name ] }
+                  error={error.email}
                   key={ `${ item.name }-${ index }` }
                 />
               );
@@ -56,6 +57,7 @@ export default function Form({
                     },
                   } ) }
                   errors={ errors[ item.name ] }
+                  error={error.password}
                   key={ `${ item.name }-${ index }` }
                   errorPassword={ error.password }
                 />

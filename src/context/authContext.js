@@ -1,80 +1,33 @@
 "use client";
 
 import { createContext, useCallback, useMemo, useState } from "react";
-import { apiLogin } from "@/services/apiLogin";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/services/useUser";
-
+import { apiLogin } from "@/services/apiLogin";
 
 export const authContext = createContext( {
-  // user: {
-  //   email: "",
-  //   userLogin: "",
-  // },
   isAuth: false,
   login: () => {
   },
 } );
 
 export function AuthProvider({ children }) {
-const [isAuth, setIsAuth] = useState(false)
-
-  // const [ user, setUser ] = useState( {
-  //     email: "",
-  //     userLogin: "",
-  //   }
-  // );
+const [isAuth, setAuth] = useState(false)
   const router = useRouter();
 
   const login = useCallback( async(url, data) => {
-    try {
-      const response = await fetch( url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify( {
-          username: data.email,
-          password: data.password,
-        } )
-      } );
+    const res = await apiLogin( url, data );
+    console.log( res );
+    console.log( res.ok );
+    setAuth( res.ok );
 
-      if( response.ok ) {
-        console.log( response );
-        const result = await response.json();
-        console.log( result );
-        localStorage.setItem( "token", result.token );
-
-        setIsAuth(true)
-
-
-        // setUser( {
-        //   email: result.user_email,
-        //   userLogin: result.user_nicename,
-        //
-        // } );
-        // console.log( user );
-        router.push( "/profile" );
-      }
-    } catch( err ) {
-      console.log( err );
+    if(  res.ok) {
+      router.push( "/profile" );
+    } else {
+      router.replace( "/login" );
+      return res
     }
 
-    // setAuth( res.ok );
-
-    // setUser( {
-    //   email: res.user_email,
-    //   login: res.user_nicename,
-    //
-    // } );
-    // console.log( user );
-    // if( user ) {
-    //   router.push( "/profile" );
-    // } else {
-    //   router.replace( "/login" );
-    // }
-
-  }, [ ] );
+  }, [ isAuth ] );
 
   const value = useMemo( () => {
     return {

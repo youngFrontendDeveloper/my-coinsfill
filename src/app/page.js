@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -15,7 +14,7 @@ export default function HomePage() {
       <ul className="max-w-[600px] mx-auto mb-[20px] pl-[20px] pr-[10px] text-black-80 list-disc">
         <li>Адаптивный проект для mobile и desktop экранов (минимальное разрешение 430px)</li>
         <li>Подключение шрифтов Google</li>
-        <li>Работу страницы входа/регистрации пользователя с помощью REST API</li>
+        <li>Работу страницы входа/регистрации пользователя с помощью REST API (из данных пользователя - только аватар)</li>
         <li>Приватные и публичные страницы (<Link
           href="/profile" className="text-link-blue-100 underline hover:text-my-orange-100"
         >profile</Link> - приватная страница)
@@ -32,7 +31,7 @@ export default function HomePage() {
       <p className="max-w-[600px] mx-auto mb-[50px] text-black-80 font-medium">Для проверки работоспособности нажмите на
         иконку входа в шапке сайта. Вы можете зарегистрироваться или войти по логину: <span
           className="font-normal"
-        >+79274589247</span> и паролю: <span className="font-normal">123456</span></p>
+        >my-mail@mail.ru</span> и паролю: <span className="font-normal">123456</span></p>
       <p className="max-w-[600px] mx-auto mb-[50px] text-black-80 font-medium">Макет проекта в Figma находится по <Link
         href="https://www.figma.com/file/IzomCNCemtEBchR7PqsA5B/testovoe-fixer?type=design&node-id=0-1&mode=design&t=jwsWI3eqcdBWmo4A-0"
         title="Посмотреть макет" className="text-link-blue-100 underline hover:text-my-orange-100" target="_blank"

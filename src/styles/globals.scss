@@ -235,3 +235,10 @@ body {
   transform: scale(1.1);
   fill: variable.$color-active-link;
 }
+
+.crop {
+  border-image: url(/images/image-border.svg) 5%;
+  border-width: 9px;
+  border-radius: 100%;
+  box-sizing: content-box;
+}
