@@ -1,5 +1,5 @@
 import Link from "next/link";
-import EditIcon from "../../../public/images/edit-icon6.svg";
+import EditIcon from "../../../public/images/edit-icon.svg";
 
 
 export default function EditAvatarIcon(){

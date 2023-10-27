@@ -31,7 +31,7 @@ export default function ProfilePage() {
       router.push( "/login" );
     }
 
-  }, [] );
+  }, [isAuth, router] );
 
 
   useEffect( () => {

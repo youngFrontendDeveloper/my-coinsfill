@@ -27,7 +27,7 @@ const [isAuth, setAuth] = useState(false)
       return res
     }
 
-  }, [ isAuth ] );
+  }, [ isAuth, router ] );
 
   const value = useMemo( () => {
     return {
