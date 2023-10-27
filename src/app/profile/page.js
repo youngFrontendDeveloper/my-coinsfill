@@ -7,6 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import { getAvatar } from "@/services/getAvatar";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import EditIcon from "../../../public/images/edit-icon.svg";
+import EditAvatarIcon from "@/components/EditAvatarIcon/EditAvatarIcon";
 
 export default function ProfilePage() {
   const [ avatar, setAvatar ] = useState( null );
@@ -47,7 +49,7 @@ export default function ProfilePage() {
     <div className="">
       {/*<Breadcrumbs items={ breadCrumbs } />*/ }
       <h1 className="mb-[37px] text-[26px] font-bold text-center leading-[32px]">Профиль пользователя</h1>
-      <div className="block w-[100px] h-[100px] rounded-[50%] overflow-hidden">
+      <div className="block w-[100px] h-[100px] rounded-[50%] overflow-hidden border-[1px]">
         {
           avatar ? <Image
               src={ avatar }
@@ -56,12 +58,28 @@ export default function ProfilePage() {
               alt="Аватар"
               loading="lazy"
             />
-            : null
+            : <Image src="/images/avatar-icon.svg"
+                     width={ 100 }
+                     height={ 100 }
+                     alt="Дефолтный Аватар"
+                     loading="lazy"
+           />
+
+
         }
+
       </div>
-      <Link href="/avatar" className="text-[18px] font-medium underline text-link-blue-100 hover:text-my-orange-100">
-        Изменить аватар
-      </Link>
+      <EditAvatarIcon />
+      {/*<Link href="/avatar" className="edit-avatar-link block ml-[90px] mt-[-15px] text-[18px] font-medium underline text-link-blue-100 ">*/}
+      {/*  <Image*/}
+      {/*    src="/images/edit-icon.svg"*/}
+      {/*    width={25}*/}
+      {/*    height={ 25 }*/}
+      {/*    alt="Изменить аватар"*/}
+      {/*    title="Изменить аватар"*/}
+      {/*    className="edit-avatar"*/}
+      {/*  />*/}
+      {/*</Link>*/}
     </div>
   );
 }

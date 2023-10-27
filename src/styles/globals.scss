@@ -14,6 +14,7 @@ body {
   flex-direction: column;
   height: 100%;
   color: variable.$color-text;
+  font-size: 18px;
   background-color: variable.$color-white;
   box-sizing: border-box;
 }
@@ -71,7 +72,7 @@ body {
 
 .footer__icon {
   fill: lighten(variable.$color-text, 50%);
-
+  transition: transform 0.2s;
 }
 
 .footer__icon--active {
@@ -229,6 +230,7 @@ body {
 
 .login__icon {
   fill: variable.$color-login;
+  transition: transform 0.2s;
 }
 
 .login__icon:hover {
@@ -241,4 +243,21 @@ body {
   border-width: 9px;
   border-radius: 100%;
   box-sizing: content-box;
+}
+.edit-avatar-link {
+  color: variable.$color-text;
+}
+
+.edit-avatar-link:hover {
+  color: variable.$color-active-link;
+}
+
+.edit-avatar {
+  fill: variable.$color-text;
+  transition: transform 0.2s;
+}
+
+.edit-avatar:hover {
+  transform: scale(1.1);
+  fill: variable.$color-active-link;
 }
