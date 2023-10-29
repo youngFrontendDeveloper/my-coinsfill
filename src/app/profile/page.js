@@ -1,13 +1,10 @@
 "use client";
 
-import Link from "next/link";
-// import Breadcrumbs from "@/components/BreadCrumbs/Breadcrumbs";
 import { authContext } from "@/context/authContext";
 import { useContext, useEffect, useState } from "react";
 import { getAvatar } from "@/services/getAvatar";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import EditIcon from "../../../public/images/edit-icon.svg";
 import EditAvatarIcon from "@/components/EditAvatarIcon/EditAvatarIcon";
 
 export default function ProfilePage() {
@@ -15,24 +12,12 @@ export default function ProfilePage() {
   const router = useRouter();
   const { isAuth } = useContext( authContext );
 
-  const breadCrumbs = [
-    {
-      title: "Главная",
-      src: "/"
-    },
-    {
-      title: "Настройки аккаунта",
-      src: "/profile"
-    },
-  ];
-
   useEffect( () => {
     if( isAuth === false ) {
       router.push( "/login" );
     }
 
   }, [isAuth, router] );
-
 
   useEffect( () => {
     async function f() {
@@ -47,7 +32,6 @@ export default function ProfilePage() {
 
   return (
     <div className="">
-      {/*<Breadcrumbs items={ breadCrumbs } />*/ }
       <h1 className="mb-[37px] text-[26px] font-bold text-center leading-[32px]">Профиль пользователя</h1>
       <div className="block w-[100px] h-[100px] rounded-[50%] overflow-hidden border-[1px]">
         {
@@ -64,22 +48,9 @@ export default function ProfilePage() {
                      alt="Дефолтный Аватар"
                      loading="lazy"
            />
-
-
         }
-
       </div>
       <EditAvatarIcon />
-      {/*<Link href="/avatar" className="edit-avatar-link block ml-[90px] mt-[-15px] text-[18px] font-medium underline text-link-blue-100 ">*/}
-      {/*  <Image*/}
-      {/*    src="/images/edit-icon.svg"*/}
-      {/*    width={25}*/}
-      {/*    height={ 25 }*/}
-      {/*    alt="Изменить аватар"*/}
-      {/*    title="Изменить аватар"*/}
-      {/*    className="edit-avatar"*/}
-      {/*  />*/}
-      {/*</Link>*/}
     </div>
   );
 }

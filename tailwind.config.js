@@ -34,6 +34,7 @@ module.exports = {
         },
         black: {
           80: "#1E1E2E",
+          50: "rgba(30,30,46,0.5)",
         },
       },
 

@@ -3,6 +3,7 @@ import "@/styles/globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { AuthProvider } from "@/context/authContext";
+import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 
 
 export default function RootLayout({ children }) {
@@ -11,7 +12,8 @@ export default function RootLayout({ children }) {
     <body className={ Mont.className }>
     <AuthProvider>
       <Header />
-      <main className="main">
+      <div className="container"><BreadCrumbs /></div>
+      <main className="main container">
         { children }
       </main>
       <Footer />
