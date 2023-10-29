@@ -22,7 +22,7 @@ export default function ProfilePage() {
   useEffect( () => {
     async function f() {
       const response = await getAvatar();
-      console.log(response);
+
       setAvatar( response.image );
     }
 

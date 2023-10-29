@@ -11,20 +11,20 @@ export const authContext = createContext( {
 } );
 
 export function AuthProvider({ children }) {
-const [isAuth, setAuth] = useState(false)
+  const [ isAuth, setAuth ] = useState( localStorage.getItem( "token" ) );
   const router = useRouter();
 
   const login = useCallback( async(url, data) => {
     const res = await apiLogin( url, data );
-    console.log( res );
-    console.log( res.ok );
+
     setAuth( res.ok );
 
-    if(  res.ok) {
+    if( res.ok ) {
       router.push( "/profile" );
     } else {
       router.replace( "/login" );
-      return res
+      // localStorage.clear();
+      return res;
     }
 
   }, [ isAuth, router ] );

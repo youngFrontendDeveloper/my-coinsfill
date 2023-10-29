@@ -1,6 +1,6 @@
 "use client";
 
-import Crumb from "./Crumb";
+import Crumb from "../Cramb/Crumb";
 import { useEffect, useState } from "react";
 import { usePathname, } from "next/navigation";
 import { breadCrumbs } from "@/utils/breadCrumbs";

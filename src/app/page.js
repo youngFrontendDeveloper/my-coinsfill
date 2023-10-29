@@ -18,8 +18,8 @@ export default function HomePage() {
          <li>Приватные и публичные страницы (<Link
            href="/profile" className="text-link-blue-100 underline hover:text-my-orange-100"
          >profile</Link> и <Link
-           href="/avatar" className="text-link-blue-100 underline hover:text-my-orange-100"
-         >profile</Link>- приватные страницы)
+           href="/profile/avatar" className="text-link-blue-100 underline hover:text-my-orange-100"
+         >avatar</Link>- приватные страницы)
          </li>
          <li>Валидацию полей формы с помощью react-hook-form</li>
          <li>Кастомную стилизацию поля формы input type=&quot;file&quot;</li>

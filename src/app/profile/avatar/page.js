@@ -152,7 +152,7 @@ export default function UploadingAvatarPage() {
                 buttonText="Отменить"
                 width="375px"
                 height="65px"
-                btnClass="mb-[66px] text-black-100 from-violet-10 to-violet-20 shadow-[0_4px_20px_0] shadow-violet-50/50"
+                btnClass="mb-[35px] text-black-100 from-violet-10 to-violet-20 shadow-[0_4px_20px_0] shadow-violet-50/50"
                 onClick={ handleReset }
               />
 
