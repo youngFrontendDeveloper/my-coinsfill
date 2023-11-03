@@ -28,13 +28,13 @@ export default function BreadCrumbs() {
   return (
     <>
       { path === "/" ? (
-          <div className="flex flex-wrap items-baseline gap-[2px] mb-[30px]">
+          <div className="flex flex-wrap items-baseline gap-[2px] mb-[10px]">
             <li className="font-medium text-[10px] leading-[12.19px] text-black-50 ">
               Главная
             </li>
           </div> ) :
 
-        ( <div className="flex flex-wrap items-baseline gap-[2px] mb-[30px]">
+        ( <div className="flex flex-wrap items-baseline gap-[2px] mb-[10px]">
           {
             breadcrumbs.map( (crumb, i) => {
               return <Crumb

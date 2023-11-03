@@ -10,18 +10,26 @@ import EditAvatarIcon from "@/components/EditAvatarIcon/EditAvatarIcon";
 export default function ProfilePage() {
   const [ avatar, setAvatar ] = useState( null );
   const router = useRouter();
-  const { isAuth } = useContext( authContext );
+  const { isAuth, setAuth } = useContext( authContext );
 
   useEffect( () => {
     if( isAuth === false ) {
       router.push( "/login" );
     }
 
-  }, [isAuth, router] );
+  }, [ isAuth, router ] );
 
   useEffect( () => {
     async function f() {
       const response = await getAvatar();
+
+      if( !response.ok ) {
+        localStorage.removeItem( "token" );
+        setAuth( false );
+        router.push( "/login" );
+        return;
+      }
+      ;
 
       setAvatar( response.image );
     }
@@ -42,12 +50,13 @@ export default function ProfilePage() {
               alt="Аватар"
               loading="lazy"
             />
-            : <Image src="/images/avatar-icon.svg"
-                     width={ 100 }
-                     height={ 100 }
-                     alt="Дефолтный Аватар"
-                     loading="lazy"
-           />
+            : <Image
+              src="/images/avatar-icon.svg"
+              width={ 100 }
+              height={ 100 }
+              alt="Дефолтный Аватар"
+              loading="lazy"
+            />
         }
       </div>
       <EditAvatarIcon />

@@ -6,12 +6,13 @@ import { apiLogin } from "@/services/apiLogin";
 
 export const authContext = createContext( {
   isAuth: false,
+  setAuth:()=>{},
   login: () => {
   },
 } );
 
 export function AuthProvider({ children }) {
-  const [ isAuth, setAuth ] = useState( localStorage.getItem( "token" ) );
+  const [ isAuth, setAuth ] = useState( () => typeof window === "undefined" ? null : localStorage.getItem( "token" ) );
   const router = useRouter();
 
   const login = useCallback( async(url, data) => {
@@ -23,7 +24,7 @@ export function AuthProvider({ children }) {
       router.push( "/profile" );
     } else {
       router.replace( "/login" );
-      // localStorage.clear();
+
       return res;
     }
 
@@ -32,6 +33,7 @@ export function AuthProvider({ children }) {
   const value = useMemo( () => {
     return {
       isAuth,
+      setAuth,
       login,
     };
   }, [ isAuth, login ] );

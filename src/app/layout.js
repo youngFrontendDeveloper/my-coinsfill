@@ -12,8 +12,9 @@ export default function RootLayout({ children }) {
     <body className={ Mont.className }>
     <AuthProvider>
       <Header />
-      <div className="container"><BreadCrumbs /></div>
+
       <main className="main container">
+        <BreadCrumbs />
         { children }
       </main>
       <Footer />
