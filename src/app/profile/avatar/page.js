@@ -21,7 +21,7 @@ export default function UploadingAvatarPage() {
       return;
     }
 
-    if( e.target.files[ 0 ].size > 625000 ) {
+    if( e.target.files[ 0 ].size > 5242880 ) {
       const size = ( e.target.files[ 0 ].size / 1048576 ).toFixed( 2 );
       setMessageErr( `Размер файла ${ size }Мб превышает 5Мб. Выберите другой файл` );
       e.target.value = "";
